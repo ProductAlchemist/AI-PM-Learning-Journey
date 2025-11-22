@@ -1,193 +1,80 @@
 # What is an LLM?
 
-## What is an LLM? (Simple Explanation)
-
-**Template: Fill in as you learn**
-
-Questions to answer:
-- What does LLM stand for and what does it mean?
-- How would you explain an LLM to a non-technical stakeholder?
-- What makes LLMs different from traditional software?
-- What are some real-world examples of LLMs you interact with?
-
-**Your notes:**
-[Write your explanation here]
+📚 **Status: Learning in Progress**
 
 ---
 
-## How Do LLMs Work? (High-Level, No Deep Math)
+## What is an LLM?
 
-**Template: Fill in as you learn**
+LLM stands for **Large Language Model**—a type of AI trained on massive amounts of text to understand and generate human-like responses. Think of it as autocomplete on steroids: instead of just predicting the next word, it can write entire paragraphs, answer questions, summarize documents, or even write code.
 
-Questions to answer:
-- At a high level, what happens when you send a prompt to an LLM?
-- What does "training" an LLM mean?
-- What is the difference between training and inference?
-- How does an LLM "predict" the next word/token?
-- Why can't LLMs remember conversations without context?
+Unlike traditional software that follows explicit rules ("if user clicks button, do X"), LLMs predict responses based on patterns learned from billions of text examples. ChatGPT, GitHub Copilot, and Google Bard are all LLMs.
 
-**Your notes:**
-[Write your explanation here]
-
-**Diagrams/Visuals:**
-[Add any diagrams or flowcharts that help you understand the process]
+**Key difference:** Traditional software executes instructions. LLMs generate probable responses based on training data.
 
 ---
 
 ## Key Concepts PMs Must Understand
 
-### Tokens
+### Tokens: How Text is Processed
 
-**Template: Fill in as you learn**
+LLMs don't read words—they read **tokens**. A token is roughly 3-4 characters, so "hello world" is about 2-3 tokens.
 
-Questions to answer:
-- What is a token? How is it different from a word?
-- Why do PMs need to care about tokens?
-- How do tokens affect cost and performance?
-- Example: How many tokens is a typical user message?
+**Why PMs care:**
+- **Cost:** APIs charge per token (input + output). A 1,000-word response costs more than a 100-word one.
+- **Performance:** More tokens = slower responses and higher latency.
+- **Limits:** Models have maximum token counts (e.g., 4K, 128K tokens).
 
-**Your notes:**
-[Write your explanation here]
+**Example:** A typical email (~200 words) is roughly 300 tokens. If your product processes 10,000 emails/day, you're using ~3M tokens.
 
----
+### Context Window: Memory Limitation
 
-### Context Window
+The **context window** is how much text the model can "remember" at once—like working memory. A 4K token context means the model only sees the last ~3,000 words of conversation.
 
-**Template: Fill in as you learn**
+**Why PMs care:**
+- **Product design:** Long conversations lose early context. Need to decide what to keep vs. discard.
+- **Feature limits:** Document Q&A works differently for 5-page vs. 500-page documents.
+- **Cost vs. capability:** Larger context windows (128K tokens) cost more but handle longer inputs.
 
-Questions to answer:
-- What is a context window?
-- Why is there a limit to context window size?
-- How does context window size affect product design?
-- What happens when you exceed the context window?
-- Trade-offs: larger vs smaller context windows
+**Product implication:** If building a chatbot for customer support, you need to decide: do you summarize old messages or let context "forget" them?
 
-**Your notes:**
-[Write your explanation here]
+### Temperature: Creativity Control
 
-**Product implications:**
-[How does this affect product decisions?]
+**Temperature** (0.0 to 1.0) controls randomness in responses.
 
----
+- **Low temperature (0.1-0.3):** Consistent, predictable, factual. Same prompt → same answer.
+- **High temperature (0.7-1.0):** Creative, varied, less predictable. Same prompt → different answers.
 
-### Temperature
+**Why PMs care:**
+- **Use case alignment:** Customer support needs low temperature (consistent answers). Creative writing tools need high temperature (varied suggestions).
+- **Quality control:** High temperature increases hallucinations (making up facts).
 
-**Template: Fill in as you learn**
-
-Questions to answer:
-- What is temperature in the context of LLMs?
-- What does low temperature (e.g., 0.1) do? When would you use it?
-- What does high temperature (e.g., 0.9) do? When would you use it?
-- How should a PM decide what temperature to use for different features?
-
-**Your notes:**
-[Write your explanation here]
-
-**Use cases:**
-- Low temperature use case: [Example]
-- High temperature use case: [Example]
+**Example use cases:**
+- Low temperature: FAQ bot, data extraction, classification
+- High temperature: Marketing copy generation, brainstorming tools, creative writing
 
 ---
 
-### Prompting
+## Why PMs Should Care
 
-**Template: Fill in as you learn**
+Understanding LLMs helps you:
 
-Questions to answer:
-- What is prompt engineering?
-- Why does the same question phrased differently produce different results?
-- What makes a "good" prompt?
-- What are common prompting techniques? (e.g., few-shot, chain-of-thought)
-- How much should PMs know about prompting?
+1. **Scope features realistically:** Know what's possible (summarization, Q&A) vs. what's hard (perfect accuracy, real-time data).
 
-**Your notes:**
-[Write your explanation here]
+2. **Estimate costs:** Token-based pricing means high-volume features (e.g., analyzing every email) cost differently than low-volume (e.g., monthly reports).
 
-**Examples to test:**
-1. [Prompt example 1 you want to try]
-2. [Prompt example 2 you want to try]
+3. **Design better UX:** Understanding context limits helps you design features like "conversation memory" or "document upload limits."
 
----
+4. **Ask engineers the right questions:** "What temperature are we using?" or "How are we handling context overflow?" shows you understand the tradeoffs.
 
-## Why PMs Need to Know This
+5. **Manage expectations:** LLMs are probabilistic, not deterministic—they sometimes get things wrong. Design for graceful failures.
 
-**Template: Fill in as you learn**
-
-Questions to answer:
-- How does understanding LLMs help you design better products?
-- What questions should you ask engineers when building LLM features?
-- How does this knowledge help with scoping and estimation?
-- What are common pitfalls PMs encounter when building with LLMs?
-- How does this affect user experience design?
-
-**Your notes:**
-[Write your explanation here]
-
-**Product scenarios:**
-[Describe specific product scenarios where this knowledge would be valuable]
+**Real product scenario:** Building a document Q&A feature. You need to know:
+- How long are typical documents? (impacts context window choice)
+- How many queries per user? (impacts cost)
+- Do we need exact answers or summaries? (impacts temperature and prompt design)
 
 ---
 
-## Resources for Deeper Learning
-
-**Template: Fill in as you learn**
-
-Add resources as you discover them:
-
-**Articles/Blog Posts:**
-- [Resource 1 - Title and link]
-- [Resource 2 - Title and link]
-
-**Videos/Courses:**
-- [Resource 1 - Title and link]
-- [Resource 2 - Title and link]
-
-**Books:**
-- [Resource 1 - Title and link]
-
-**Hands-on Tools:**
-- [Tool 1 - What it helps you learn]
-- [Tool 2 - What it helps you learn]
-
-**Communities/Forums:**
-- [Community 1 - Why it's useful]
-
----
-
-## Questions I Still Have
-
-**Template: Track your learning journey**
-
-As you learn, write down questions that come up. Come back and answer them as you progress:
-
-1. [Question 1]
-   - Answer: [Fill in when you learn it]
-
-2. [Question 2]
-   - Answer: [Fill in when you learn it]
-
-3. [Question 3]
-   - Answer: [Fill in when you learn it]
-
----
-
-## Experiments to Try
-
-**Template: Hands-on learning**
-
-List experiments you want to try to solidify your understanding:
-
-- [ ] Experiment 1: [What you want to test]
-  - Hypothesis: [What you expect to happen]
-  - Results: [What actually happened]
-  - Learning: [What you learned]
-
-- [ ] Experiment 2: [What you want to test]
-  - Hypothesis: [What you expect to happen]
-  - Results: [What actually happened]
-  - Learning: [What you learned]
-
----
-
-**Last Updated:** [Add date when you update this]
-**Status:** Template - Ready for learning
+**Last Updated:** 2025-11-22
+**Status:** Learning in Progress
