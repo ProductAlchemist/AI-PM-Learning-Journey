@@ -77,26 +77,139 @@ This repository documents my journey from fintech PM to AI-enabled PM — combin
 
 ---
 
-## Learning Roadmap (Phased Approach)
+## Progress To Date (Nov 2025 → Feb 2026)
 
-### Phase 1: Foundational Understanding (Current)
+### Technical Learning Achieved
 
-**Goal:** Understand core AI/LLM concepts and terminology
+**Starting Point (Nov 22, 2025):**
+- Zero development experience
+- No understanding of React, TypeScript, or modern web development
+- Never deployed an application to production
+- PM who could talk about tech but couldn't build with tech
+
+**3-Month Journey:**
+
+**Month 1 (Nov 2025): Foundations**
+- Installed: Node.js, Git, VS Code, Claude Code CLI
+- First "Hello World" React component (Nov 28)
+- Learned: Component structure, JSX syntax, props vs state
+- **Breakthrough:** Realized React components = product modules (similar mental model to Porter's platform architecture)
+
+**Month 2 (Dec 2025): Building Real Applications**
+- Built **PlayLoop Studios** - 2 complete games deployed to production
+  - Tic-Tac-Toe: Minimax AI algorithm (unbeatable), multiplayer with Firebase real-time sync
+  - Snake: Game loop timing, collision detection, mobile touch controls
+- Learned: React 19, TypeScript, Firebase (Realtime Database, Auth, Analytics), Tailwind CSS, Vite
+- **Challenge:** Understanding game loops (setInterval vs requestAnimationFrame) - similar to order processing loops at Porter
+- **Deployed:** playloop-studios.vercel.app (live with 2 working games)
+
+**Month 3 (Jan 2026): Advanced Features & New Projects**
+- Built **Cipher** - Daily word puzzle (Wordle clone)
+  - React + TypeScript + Firebase
+  - 2,000+ players engaging daily
+  - Word validation with industry-standard lists (answers + valid guesses)
+- Built **YouTube Automation System** - Video generation pipeline
+  - MoviePy for video rendering
+  - Upload automation
+  - A/B testing framework
+- **Challenge:** Word list validation - learned to research industry standards (official Wordle implementation) before building
+- **Deployed:** cipher-daily.vercel.app (live daily puzzle)
+
+**Skills Acquired (Proof: 3 Live Production Apps):**
+
+*Frontend Development:*
+- React 19 (concurrent rendering, hooks, state management)
+- TypeScript (type safety, interfaces, generics)
+- Tailwind CSS (utility-first, responsive design)
+- Vite (build tooling, ESM-based dev server)
+
+*Backend & Infrastructure:*
+- Firebase Realtime Database (NoSQL, real-time sync, sub-100ms latency)
+- Firebase Auth (anonymous users for multiplayer)
+- Firebase Analytics (visitor tracking, event logging)
+- API integration (REST, real-time listeners)
+
+*DevOps & Deployment:*
+- Vercel (edge network, serverless, auto-deploy on push)
+- Git/GitHub workflows (commits, branches, pull requests)
+- CI/CD concepts (build → test → deploy)
+
+*Game Development Concepts:*
+- Game loops (timing, frame rate management)
+- Collision detection algorithms
+- State synchronization (multiplayer)
+- AI algorithms (minimax with alpha-beta pruning)
+
+**PM Application Learnings:**
+
+*1. Technical Tradeoff Evaluation:*
+- **Before:** "Let's add real-time features" (vague understanding)
+- **After:** "Real-time via Firebase = <100ms sync but vendor lock-in, WebSocket = full control but DevOps complexity" (can evaluate build vs buy)
+- **Porter Impact:** Better architecture discussions with engineering (understand state management = order lifecycle complexity)
+
+*2. Feasibility Assessment:*
+- **Before:** "Is this hard?" (relied on engineering estimates)
+- **After:** Can prototype features myself to validate feasibility before committing team resources
+- **Porter Impact:** Can push back on "impossible" claims when I know the technical constraints
+
+*3. Scalability Thinking:*
+- **Before:** "Will this scale?" (surface-level question)
+- **After:** Understand Firebase free tier (100 concurrent connections) vs enterprise needs (50K partners × 1M transactions)
+- **Porter Impact:** Know when to optimize for speed vs cost, MVP architecture ≠ enterprise architecture
+
+*4. Technical Debt Recognition:*
+- **Before:** Technical debt was abstract concept
+- **After:** Can identify overly complex state management, performance bottlenecks, architectural shortcuts
+- **Porter Impact:** Better prioritization - know where technical debt lives and what it costs to fix
+
+**Proof of Work:**
+- ✅ playloop-studios.vercel.app (2 games, multiplayer, production-ready)
+- ✅ cipher-daily.vercel.app (daily puzzle, 2,000+ players)
+- ✅ GitHub repositories with meaningful commit history (not just final code dumps)
+- ✅ Can ship React + TypeScript + Firebase apps independently
+
+**What This Unlocked:**
+- Credibility with engineering teams (PMs who code are respected)
+- Faster prototyping (validate ideas without committing team resources)
+- Better product judgment (understand what's hard vs easy technically)
+- **Interview differentiator:** BharatPe interviewer got excited - "Why didn't you mention this earlier? This should be in your resume!"
+
+---
+
+## Learning Roadmap (What's Next)
+
+### Phase 1: ✅ COMPLETED (Nov 2025 → Jan 2026)
+
+**Original Goal:** Understand core AI/LLM concepts and terminology
+
+**What Actually Happened:**
+- Skipped theoretical learning, jumped straight to building production apps
+- Learned React/TypeScript/Firebase through hands-on game development
+- Achieved: Can ship production web applications independently
+
+**Unexpected Outcome:** Technical credibility became interview differentiator (AI PM roles value hands-on building)
+
+---
+
+### Phase 2: AI/LLM Integration (Current - Feb 2026 Onwards)
+
+**Goal:** Add AI/LLM capabilities to existing technical foundation
 
 **Focus Areas:**
-- LLM basics (transformer architecture, tokens, embeddings)
-- Prompt engineering (zero-shot, few-shot, chain-of-thought)
+- LLM basics (transformer architecture, tokens, embeddings, context windows)
+- Prompt engineering (zero-shot, few-shot, chain-of-thought prompting)
 - RAG systems (retrieval-augmented generation architecture)
 - Vector databases (Pinecone, Weaviate, Chroma)
 
-**Hands-On Projects:**
-- Build simple chatbot with OpenAI API
-- Experiment with RAG (document Q&A system)
-- Test prompt engineering patterns
+**Hands-On Projects (Building on Cipher/PlayLoop Base):**
+- Add AI hint system to Cipher (LLM suggests word patterns without giving answer)
+- Build document Q&A chatbot using RAG (Porter policy docs use case)
+- Experiment with prompt engineering (compare zero-shot vs few-shot for game AI)
 
 **Porter Connection:**
 - How would LLM-powered chatbot answer partner questions about tax deductions?
 - How would RAG system retrieve relevant loan eligibility criteria from policy docs?
+- Can AI detect fraudulent patterns in partner behavior (anomaly detection)?
 
 ---
 
