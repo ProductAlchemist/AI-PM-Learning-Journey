@@ -349,3 +349,8 @@ This repository documents my journey from fintech PM to AI-enabled PM — combin
 - **Combined skillset:** Positions as "fintech expert + platform thinker + behavioral designer + AI depth" (rare combination)
 
 **What Makes This Compelling:**
+1. Strategic timing (why NOW matters)
+2. Domain-specific (fintech AI, not generic AI)
+3. Connected to existing work (Porter use cases throughout)
+4. Phased roadmap (clear progression, not random experimentation)
+5. Practical focus (hands-on prototypes, not just courses)
